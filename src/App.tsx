@@ -1,14 +1,10 @@
-import ServiceCard from "@/components/service-card"
+import Budget from "@/components/Budget"
 
 const App = () => {
   return (
-    <div>
-      <ServiceCard
-        title="SEO"
-        description="Millora el posicionament als cercadors."
-        basePrice={300}
-      />
-    </div>
+    <main>
+     <Budget />
+    </main>
   );
 };
 export default App;
