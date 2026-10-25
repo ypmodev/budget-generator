@@ -6,5 +6,5 @@ export interface ServiceCardProps extends ServiceType {
   setPages: (pages: number) => void;
   setLanguages: (languages: number) => void;
   setServiceSelect: (id: ServiceId, selected: boolean) => void;
-  isWebSelected: boolean;
+  isSelected: boolean;
 }

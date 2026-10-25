@@ -41,7 +41,7 @@ const Budget = () => {
             setPages={setPages}
             setLanguages={setLanguages}
             setServiceSelect={setServiceSelect}
-            isWebSelected={service.id === "web" && budget.web}
+            isSelected={budget[service.id]}
           />
         ))}
       </article>

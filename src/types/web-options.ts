@@ -3,4 +3,6 @@ export interface WebOptionsProps {
   languages: number;
   setPages: (pages: number) => void;
   setLanguages: (languages: number) => void;
+  minPages: number;
+  minLanguages: number;
 }
