@@ -5,14 +5,15 @@ import servicesData from "@/data/services.json";
 import type { ServiceType } from "@/types/service";
 
 const services = servicesData as ServiceType[];
+const baseCount = 1;
 
 const Budget = () => {
   const [budget, setBudget] = useState<BudgetState>({
     seo: false,
     ads: false,
     web: false,
-    pages: 1,
-    languages: 1,
+    pages: baseCount,
+    languages: baseCount,
   });
 
   const setPages = (page: number) => {
@@ -25,6 +26,11 @@ const Budget = () => {
 
   const setServiceSelect = (id: "seo" | "ads" | "web", selected: boolean) => {
     setBudget((prev) => ({ ...prev, [id]: selected }));
+
+    if (id === "web" && !selected) {
+      setPages(baseCount);
+      setLanguages(baseCount);
+    }
   };
 
   return (
