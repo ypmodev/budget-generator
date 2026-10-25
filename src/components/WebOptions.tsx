@@ -18,6 +18,7 @@ const WebOptions = ({
           >
             Nombre de pàgines
           </label>
+
           <Button
             variant="outline"
             size="icon"
@@ -28,7 +29,7 @@ const WebOptions = ({
           >
             <span aria-hidden="true">-</span>
           </Button>
-         
+
           <Input
             className="w-12 text-sm text-center font-semibold"
             id="pagesInput"
@@ -37,6 +38,7 @@ const WebOptions = ({
             step="1"
             value={pages}
           />
+
           <Button
             variant="outline"
             size="icon"
@@ -48,19 +50,24 @@ const WebOptions = ({
           </Button>
         </div>
         <div className="flex items-center justify-end gap-3">
-          <label htmlFor="languagesInput" className="font-semibold whitespace-nowrap text-sm">
+          <label
+            htmlFor="languagesInput"
+            className="font-semibold whitespace-nowrap text-sm"
+          >
             Nombre de llenguatge
           </label>
+
           <Button
             variant="outline"
             size="icon"
             className="btn-counter"
             id="languagesButtonDecrease"
-            disabled={pages <= 1}
+            disabled={languages <= 1}
             aria-label="Reduir el nombre de languages"
           >
             <span aria-hidden="true">-</span>
           </Button>
+
           <Input
             className="w-12 text-center font-semibold"
             id="languagesInput"
@@ -69,6 +76,7 @@ const WebOptions = ({
             step="1"
             value={languages}
           />
+
           <Button
             variant="outline"
             size="icon"

@@ -1,7 +1,10 @@
 import ServiceCard from "@/components/ServiceCard";
 import type { BudgetState } from "@/types/budget-state";
 import { useState } from "react";
-import services from "@/data/services.json";
+import servicesData from "@/data/services.json";
+import type { ServiceType } from "@/types/service";
+
+const services = servicesData as ServiceType[];
 
 const Budget = () => {
   const [budget, setBudget] = useState<BudgetState>({
@@ -21,8 +24,8 @@ const Budget = () => {
   };
 
   const setServiceSelect = (id: "seo" | "ads" | "web", selected: boolean) => {
-  setBudget((prev) => ({...prev,[id]: selected}));
-};
+    setBudget((prev) => ({ ...prev, [id]: selected }));
+  };
 
   return (
     <>

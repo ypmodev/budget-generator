@@ -46,6 +46,7 @@ const ServiceCard = ({
           <Checkbox
             id={id}
             className="data-checked:bg-[#58af8c] data-checked:border-[#58af8c]"
+            
             onCheckedChange={(checked) => setServiceSelect(id, checked)}
           />
           <label htmlFor={id} className="font-semibold cursor-pointer text-sm">
