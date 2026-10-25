@@ -19,6 +19,8 @@ const ServiceCard = ({
   languages,
   setPages,
   setLanguages,
+  setServiceSelect,
+  isWebSelected,
 }: ServiceCardProps) => {
   return (
     <Card className="rounded-2xl border-0 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)]">
@@ -44,6 +46,7 @@ const ServiceCard = ({
           <Checkbox
             id={id}
             className="data-checked:bg-[#58af8c] data-checked:border-[#58af8c]"
+            onCheckedChange={(checked) => setServiceSelect(id, checked)}
           />
           <label htmlFor={id} className="font-semibold cursor-pointer text-sm">
             Afegir
@@ -51,7 +54,7 @@ const ServiceCard = ({
         </div>
         <div className="col-span-3 flex justify-end">
           {" "}
-          {id === "web" && (
+          {id === "web" && isWebSelected && (
             <WebOptions
               pages={pages}
               languages={languages}

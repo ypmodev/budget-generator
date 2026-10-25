@@ -20,6 +20,10 @@ const Budget = () => {
     setBudget((prev) => ({ ...prev, languages: language }));
   };
 
+  const setServiceSelect = (id: "seo" | "ads" | "web", selected: boolean) => {
+  setBudget((prev) => ({...prev,[id]: selected}));
+};
+
   return (
     <>
       <section className="mx-auto w-full max-w-5xl"></section>
@@ -33,6 +37,8 @@ const Budget = () => {
             languages={budget.languages}
             setPages={setPages}
             setLanguages={setLanguages}
+            setServiceSelect={setServiceSelect}
+            isWebSelected={service.id === "web" && budget.web}
           />
         ))}
       </article>
