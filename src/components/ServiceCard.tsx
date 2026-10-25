@@ -21,20 +21,36 @@ const ServiceCard = ({
   setLanguages,
 }: ServiceCardProps) => {
   return (
-    <Card>
-      <CardContent>
-        <div>
-          <CardTitle> {title} </CardTitle>
-          <CardDescription> {description}</CardDescription>
+    <Card className="rounded-2xl border-0 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)]">
+      {" "}
+      <CardContent className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 p-6">
+        {" "}
+        <div className="min-w-0 ">
+          <CardTitle className="text-2xl font-extrabold text-black">
+            {" "}
+            {title}
+          </CardTitle>
+
+          <CardDescription className="text-sm font-semibold leading-tight text-neutral-800">
+            {" "}
+            {description}
+          </CardDescription>
         </div>
-        <div>
+        <div className="translate-x-18 text-center text-4xl font-extrabold whitespace-nowrap">
           <p>{basePrice} €</p>
         </div>
-        <div>
-          <Checkbox id={id} />
-          <label htmlFor={id}>Afegir</label>
+        <div className="flex items-center justify-end gap-2">
+          {" "}
+          <Checkbox
+            id={id}
+            className="data-checked:bg-[#58af8c] data-checked:border-[#58af8c]"
+          />
+          <label htmlFor={id} className="font-semibold cursor-pointer text-sm">
+            Afegir
+          </label>
         </div>
-        <div>
+        <div className="col-span-3 flex justify-end">
+          {" "}
           {id === "web" && (
             <WebOptions
               pages={pages}

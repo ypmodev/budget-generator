@@ -21,18 +21,22 @@ const Budget = () => {
   };
 
   return (
-    <article>
-      {services.map((service) => (
-        <ServiceCard
-          key={service.id}
-          {...service}
-          pages={budget.pages}
-          languages={budget.languages}
-          setPages={setPages}
-          setLanguages={setLanguages}
-        />
-      ))}
-    </article>
+    <>
+      <section className="mx-auto w-full max-w-5xl"></section>
+      <article className="mx-auto mt-20 w-full max-w-4xl space-y-5 px-4">
+        {" "}
+        {services.map((service) => (
+          <ServiceCard
+            key={service.id}
+            {...service}
+            pages={budget.pages}
+            languages={budget.languages}
+            setPages={setPages}
+            setLanguages={setLanguages}
+          />
+        ))}
+      </article>
+    </>
   );
 };
 

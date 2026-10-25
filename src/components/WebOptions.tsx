@@ -10,47 +10,76 @@ const WebOptions = ({
 }: WebOptionsProps) => {
   return (
     <>
-      <div>
-        <label>Nombre de pàgines</label>
-        <Button
-          id="pagesButtonDecrease"
-          disabled={pages <= 1}
-          aria-label="Reduir el nombre de pàgines"
-        >
-          <span aria-hidden="true">-</span>
-        </Button>
-
-        <Input id="pagesInput" type="number" min="1" step="1" value={pages} />
-        <Button
-          id="pagesButtonIncrease"
-          aria-label="Augmentar el nombre de pàgines"
-        >
-          <span aria-hidden="true">+</span>
-        </Button>
-      </div>
-      <div>
-        <label>Nombre de llenguatge</label>
-        <Button
-          id="languagesButtonDecrease"
-          disabled={pages <= 1}
-          aria-label="Reduir el nombre de languages"
-        >
-          <span aria-hidden="true">-</span>
-        </Button>
-        <Input
-          id="languagesInput"
-          type="number"
-          min="1"
-          step="1"
-          value={languages}
-        />
-        <Button
-          id="languageButtonIncrease"
-          aria-label="Augmentar el nombre de languages"
-        >
-          <span aria-hidden="true">+</span>
-        </Button>
-      </div>
+      <section className="flex flex-col items-end gap-3">
+        <div className="flex items-center justify-end gap-3">
+          <label
+            htmlFor="pagesInput"
+            className="font-semibold whitespace-nowrap text-sm"
+          >
+            Nombre de pàgines
+          </label>
+          <Button
+            variant="outline"
+            size="icon"
+            className="btn-counter"
+            id="pagesButtonDecrease"
+            disabled={pages <= 1}
+            aria-label="Reduir el nombre de pàgines"
+          >
+            <span aria-hidden="true">-</span>
+          </Button>
+         
+          <Input
+            className="w-12 text-sm text-center font-semibold"
+            id="pagesInput"
+            type="number"
+            min="1"
+            step="1"
+            value={pages}
+          />
+          <Button
+            variant="outline"
+            size="icon"
+            className="btn-counter"
+            id="pagesButtonIncrease"
+            aria-label="Augmentar el nombre de pàgines"
+          >
+            <span aria-hidden="true">+</span>
+          </Button>
+        </div>
+        <div className="flex items-center justify-end gap-3">
+          <label htmlFor="languagesInput" className="font-semibold whitespace-nowrap text-sm">
+            Nombre de llenguatge
+          </label>
+          <Button
+            variant="outline"
+            size="icon"
+            className="btn-counter"
+            id="languagesButtonDecrease"
+            disabled={pages <= 1}
+            aria-label="Reduir el nombre de languages"
+          >
+            <span aria-hidden="true">-</span>
+          </Button>
+          <Input
+            className="w-12 text-center font-semibold"
+            id="languagesInput"
+            type="number"
+            min="1"
+            step="1"
+            value={languages}
+          />
+          <Button
+            variant="outline"
+            size="icon"
+            className="btn-counter"
+            id="languageButtonIncrease"
+            aria-label="Augmentar el nombre de languages"
+          >
+            <span aria-hidden="true">+</span>
+          </Button>
+        </div>
+      </section>
     </>
   );
 };
