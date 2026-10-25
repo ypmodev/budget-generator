@@ -1,5 +1,6 @@
 import WebOptions from "@/components/WebOptions";
 import type { ServiceCardProps } from "@/types/service-card";
+import texts from "@/data/texts.json";
 
 import {
   Card,
@@ -46,11 +47,10 @@ const ServiceCard = ({
           <Checkbox
             id={id}
             className="data-checked:bg-[#58af8c] data-checked:border-[#58af8c]"
-            
             onCheckedChange={(checked) => setServiceSelect(id, checked)}
           />
           <label htmlFor={id} className="font-semibold cursor-pointer text-sm">
-            Afegir
+            {texts.addService}
           </label>
         </div>
         <div className="col-span-3 flex justify-end">

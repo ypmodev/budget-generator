@@ -1,6 +1,7 @@
 import type { WebOptionsProps } from "@/types/web-options";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import texts from "@/data/texts.json";
 
 const WebOptions = ({
   pages,
@@ -16,7 +17,7 @@ const WebOptions = ({
             htmlFor="pagesInput"
             className="font-semibold whitespace-nowrap text-sm"
           >
-            Nombre de pàgines
+            {texts.webOptions.pagesLabel}
           </label>
 
           <Button
@@ -25,7 +26,7 @@ const WebOptions = ({
             className="btn-counter"
             id="pagesButtonDecrease"
             disabled={pages <= 1}
-            aria-label="Reduir el nombre de pàgines"
+            aria-label={texts.webOptions.pagesDecrease}
           >
             <span aria-hidden="true">-</span>
           </Button>
@@ -44,7 +45,7 @@ const WebOptions = ({
             size="icon"
             className="btn-counter"
             id="pagesButtonIncrease"
-            aria-label="Augmentar el nombre de pàgines"
+            aria-label={texts.webOptions.pagesIncrease}
           >
             <span aria-hidden="true">+</span>
           </Button>
@@ -54,7 +55,7 @@ const WebOptions = ({
             htmlFor="languagesInput"
             className="font-semibold whitespace-nowrap text-sm"
           >
-            Nombre de llenguatge
+            {texts.webOptions.languagesLabel}
           </label>
 
           <Button
@@ -63,7 +64,7 @@ const WebOptions = ({
             className="btn-counter"
             id="languagesButtonDecrease"
             disabled={languages <= 1}
-            aria-label="Reduir el nombre de languages"
+            aria-label={texts.webOptions.languagesDecrease}
           >
             <span aria-hidden="true">-</span>
           </Button>
@@ -82,7 +83,7 @@ const WebOptions = ({
             size="icon"
             className="btn-counter"
             id="languageButtonIncrease"
-            aria-label="Augmentar el nombre de languages"
+            aria-label={texts.webOptions.languagesIncrease}
           >
             <span aria-hidden="true">+</span>
           </Button>

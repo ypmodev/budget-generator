@@ -1,0 +1,14 @@
+{
+  "addService": "Afegir",
+
+  "webOptions": {
+    "pagesLabel": "Nombre de pàgines",
+    "languagesLabel": "Nombre de llenguatges",
+
+    "pagesDecrease": "Reduir el nombre de pàgines",
+    "languagesDecrease": "Reduir el nombre de llenguatges",
+
+    "pagesIncrease": "Augmentar el nombre de pàgines",
+    "languagesIncrease": "Augmentar el nombre de llenguatges"
+  }
+}
