@@ -33,16 +33,15 @@ const ServiceCard = ({
     >
       <CardContent className="grid grid-cols-2 items-center gap-4 p-4 md:grid-cols-3 md:p-6 lg:px-8">
         <div className="col-span-2 min-w-0 md:col-span-1 md:pr-4">
-          {" "}
-          <CardTitle className=" mb-2text-2xl font-extrabold text-black">
+          <CardTitle className="text-xl md:text-2xl lg:text-3xl font-extrabold text-black mb-3">
             {title}
           </CardTitle>
-          <CardDescription className="text-sm font-semibold leading-tight text-neutral-800">
+          <CardDescription className="text-sm font-medium leading-tight text-neutral-800">
             {description}
           </CardDescription>
         </div>
         <div className="col-start-1 row-start-2 text-left text-2xl font-extrabold whitespace-nowrap md:col-start-2 md:row-start-1 md:text-center md:text-4xl">
-          <p className="text-2xl text-left font-extrabold md:translate-x-28 whitespace-nowrap md:text-center md:text-4xl">
+          <p className="text-xl text-left font-extrabold md:translate-x-28 whitespace-nowrap md:text-center md:text-3xl">
             {basePrice} €
           </p>
         </div>
@@ -53,7 +52,7 @@ const ServiceCard = ({
             checked={isSelected}
             onCheckedChange={(checked) => setServiceSelect(id, checked)}
           />
-          <label htmlFor={id} className="font-semibold cursor-pointer text-sm">
+          <label htmlFor={id} className="cursor-pointer text-sm font-medium">
             {texts.addService}
           </label>
         </div>

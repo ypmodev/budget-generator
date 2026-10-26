@@ -37,11 +37,11 @@ const Budget = () => {
   return (
     <>
       <section className="mx-auto w-full max-w-4xl px-4 pt-8 pb-4 md:pt-12">
-        <h1 className="text-xl font-extrabold text-black md:text-2xl lg:text-4xl">
+        <h2 className="text-l font-extrabold text-black md:text-2xl lg:text-3xl">
           {texts.budgetTitle}
-        </h1>
+        </h2>
 
-        <p className="mt-3 text-xs md:text-base">{texts.budgetDescription}</p>
+        <p className="mt-3 text-sm font-medium md:text-base">{texts.budgetDescription}</p>
       </section>
 
       <article className="mx-auto mt-6 w-full max-w-4xl space-y-5 px-4">

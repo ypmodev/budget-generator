@@ -26,7 +26,7 @@ const WebOptions = ({
       <div className="flex items-center justify-between gap-3 md:justify-end">
         <label
           htmlFor="pagesInput"
-          className="font-semibold text-sm md:whitespace-nowrap"
+          className="font-medium text-sm md:whitespace-nowrap"
         >
           {texts.webOptions.pagesLabel}
         </label>
@@ -67,7 +67,7 @@ const WebOptions = ({
       <div className="flex items-center justify-end gap-3">
         <label
           htmlFor="languagesInput"
-          className="font-semibold whitespace-nowrap text-sm"
+          className="font-medium whitespace-nowrap text-sm"
         >
           {texts.webOptions.languagesLabel}
         </label>
