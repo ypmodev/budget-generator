@@ -1,9 +1,11 @@
-import Budget from "@/components/Budget"
+import Budget from "@/components/Budget";
+import Banner from "@/components/Banner";
 
 const App = () => {
   return (
     <main>
-     <Budget />
+      <Banner />
+      <Budget />
     </main>
   );
 };
