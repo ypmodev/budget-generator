@@ -2,7 +2,8 @@ import ServiceCard from "@/components/ServiceCard";
 import type { BudgetState } from "@/types/budget-state";
 import { useState } from "react";
 import servicesData from "@/data/services.json";
-import type { ServiceType } from "@/types/service";
+import type { ServiceId, ServiceType } from "@/types/service";
+import texts from "@/data/texts.json";
 
 const services = servicesData as ServiceType[];
 const baseCount = 1;
@@ -24,7 +25,7 @@ const Budget = () => {
     setBudget((prev) => ({ ...prev, languages: language }));
   };
 
-  const setServiceSelect = (id: "seo" | "ads" | "web", selected: boolean) => {
+  const setServiceSelect = (id: ServiceId, selected: boolean) => {
     setBudget((prev) => ({ ...prev, [id]: selected }));
 
     if (id === "web" && !selected) {
@@ -35,9 +36,15 @@ const Budget = () => {
 
   return (
     <>
-      <section className="mx-auto w-full max-w-5xl"></section>
-      <article className="mx-auto mt-20 w-full max-w-4xl space-y-5 px-4">
-        {" "}
+      <section className="mx-auto w-full max-w-4xl px-4 pt-8 pb-4 md:pt-12">
+        <h1 className="text-xl font-extrabold text-black md:text-2xl lg:text-4xl">
+          {texts.budgetTitle}
+        </h1>
+
+        <p className="mt-3 text-xs md:text-base">{texts.budgetDescription}</p>
+      </section>
+
+      <article className="mx-auto mt-6 w-full max-w-4xl space-y-5 px-4">
         {services.map((service) => (
           <ServiceCard
             key={service.id}
