@@ -1,5 +1,7 @@
-export interface Service {
-  id: string;
+export type ServiceId = "seo" | "ads" | "web";
+
+export interface ServiceType {
+  id: ServiceId;
   title: string;
   description: string;
   basePrice: number;

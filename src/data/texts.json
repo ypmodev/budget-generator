@@ -1,0 +1,17 @@
+{
+  "budgetTitle": "Configura el teu pressupost",
+  "budgetDescription": "Tria els serveis digitals que necessites i personalitza les opcions segons les teves necessitats.",
+
+  "addService": "Afegir",
+
+  "webOptions": {
+    "pagesLabel": "Nombre de pàgines",
+    "languagesLabel": "Nombre de llenguatges",
+
+    "pagesDecrease": "Reduir el nombre de pàgines",
+    "languagesDecrease": "Reduir el nombre de llenguatges",
+
+    "pagesIncrease": "Augmentar el nombre de pàgines",
+    "languagesIncrease": "Augmentar el nombre de llenguatges"
+  }
+}
