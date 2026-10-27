@@ -5,6 +5,7 @@
   "budgetDescription": "Tria els serveis digitals que necessites i personalitza les opcions segons les teves necessitats.",
 
   "addService": "Afegir",
+  "totalLabel": "Preu pressupostat:",
 
   "webOptions": {
     "pagesLabel": "Nombre de pàgines",
@@ -17,5 +18,11 @@
     "languagesIncrease": "Augmentar el nombre de llenguatges"
   },
 
-  "totalLabel": "Preu pressupostat:"
+  "modal": {
+    "modalPageTitle": "Número de pàgines",
+    "modalPageInfo": "Afegeix les pàgines extra que tindrà el teu web. El cost de cada pàgina addicional és de 30 €.",
+
+    "modalLanguageTitle": "Número de llenguatges",
+    "modalLanguageInfo": "Afegeix els idiomes extra que tindrà el teu projecte. El cost de cada idioma addicional és de 30 €.."
+  }
 }
