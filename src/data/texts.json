@@ -15,5 +15,7 @@
 
     "pagesIncrease": "Augmentar el nombre de pàgines",
     "languagesIncrease": "Augmentar el nombre de llenguatges"
-  }
+  },
+
+  "totalLabel": "Preu pressupostat:"
 }
