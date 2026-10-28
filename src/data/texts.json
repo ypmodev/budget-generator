@@ -20,9 +20,9 @@
 
   "modal": {
     "modalPageTitle": "Número de pàgines",
-    "modalPageInfo": "Afegeix les pàgines extra que tindrà el teu web. El cost de cada pàgina addicional és de 30 €.",
+    "modalPageInfo": "Has afegit una pàgina extra al teu web. El cost de cada pàgina addicional és de 30 €",
 
     "modalLanguageTitle": "Número de llenguatges",
-    "modalLanguageInfo": "Afegeix els idiomes extra que tindrà el teu projecte. El cost de cada idioma addicional és de 30 €.."
+    "modalLanguageInfo": "Has afegit un idioma extra al teu projecte. El cost de cada idioma addicional és de 30 €"
   }
 }

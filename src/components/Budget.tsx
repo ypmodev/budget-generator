@@ -9,6 +9,8 @@ import {
   calculateTotalBudget,
 } from "@/utils/calculateBudget";
 
+import InfoExtraCostModal from "@/components/ExtraCostModal";
+
 const services = servicesData as ServiceType[];
 const baseCount = 1;
 
@@ -77,6 +79,7 @@ const Budget = () => {
           <span className="text-3xl font-extrabold">{totalBudget.total} €</span>
         </p>
       </section>
+      <InfoExtraCostModal />
     </>
   );
 };
