@@ -2,13 +2,17 @@ import { z } from "zod";
 import texts from "@/data/texts.json";
 
 export const formSchema = z.object({
-  name: z.string().trim().min(2, { error: texts.validationForm.nameRequired }),
+  name: z
+    .string()
+    .trim()
+    .min(2, { error: texts.validationForm.nameRequired })
+    .regex(/^\S+\s+\S+/, { error: texts.validationForm.nameInvalid }),
 
   phone: z
     .string()
     .trim()
     .min(1, { error: texts.validationForm.phoneRequired })
-    .regex(/^\+?[1-9]\d{1,14}$/, {
+    .regex(/^\+?\d{9,15}$/, {
       error: texts.validationForm.phoneInvalid,
     }),
 

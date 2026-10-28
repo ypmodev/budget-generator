@@ -8,6 +8,7 @@ import {
   getSelectedServices,
   calculateTotalBudget,
 } from "@/utils/calculateBudget";
+import FormClient from "@/components/FormClient";
 
 const services = servicesData as ServiceType[];
 const baseCount = 1;
@@ -71,11 +72,16 @@ const Budget = () => {
           />
         ))}
       </article>
-      <section className="mx-auto mt-6 w-full max-w-4xl px-4 text-right">
+      <section className="mx-auto mt-8 w-full max-w-4xl px-4 text-right">
         <p aria-live="polite">
-          <span className="text-lg font-bold">{texts.totalLabel}</span>{" "}
-          <span className="text-3xl font-extrabold">{totalBudget.total} €</span>
+          <span className="text-lg font-bold">{texts.totalLabel}</span>
+          <span className="ml-3 text-3xl font-extrabold">
+            {totalBudget.total} €
+          </span>
         </p>
+      </section>
+      <section className="mx-auto mt-10 mb-10 w-full max-w-4xl px-4">
+        <FormClient />
       </section>
     </>
   );

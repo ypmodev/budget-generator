@@ -27,10 +27,22 @@
   },
 
   "validationForm": {
-  "nameRequired": "El nombre es obligatorio",
-  "phoneRequired": "El teléfono es obligatorio",
-  "phoneInvalid": "Introduce un teléfono válido",
-  "emailRequired": "El email es obligatorio",
-  "emailInvalid": "Introduce un email válido"
-}
+    "nameRequired": "El nombre es obligatorio",
+    "phoneRequired": "El teléfono es obligatorio",
+    "emailRequired": "El email es obligatorio",
+    "emailInvalid": "Introduce un email válido",
+    "nameInvalid": "Introdueix el nom i, com a mínim, un cognom",
+    "phoneInvalid": "Introdueix un telèfon vàlid (de 9 a 15 dígits, sense espais)"
+  },
+
+  "clientForm": {
+    "title": "Demanar pressupost",
+    "nameLabel": "Nom i cognoms",
+    "phoneLabel": "Telèfon",
+    "emailLabel": "Email",
+    "namePlaceholder": "Nom i cognoms",
+    "phonePlaceholder": "Telèfon",
+    "emailPlaceholder": "Email",
+    "submitButton": "Sol·licitar pressupost"
+  }
 }
