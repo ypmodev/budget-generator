@@ -24,5 +24,13 @@
 
     "modalLanguageTitle": "Número de llenguatges",
     "modalLanguageInfo": "Has afegit un idioma extra al teu projecte. El cost de cada idioma addicional és de 30 €"
-  }
+  },
+
+  "validationForm": {
+  "nameRequired": "El nombre es obligatorio",
+  "phoneRequired": "El teléfono es obligatorio",
+  "phoneInvalid": "Introduce un teléfono válido",
+  "emailRequired": "El email es obligatorio",
+  "emailInvalid": "Introduce un email válido"
+}
 }
