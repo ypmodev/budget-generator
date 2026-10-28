@@ -1,0 +1,23 @@
+[
+  {
+    "id": "seo",
+    "title": "SEO",
+    "description": "Optimització del web per millorar el posicionament als cercadors",
+    "basePrice": 300
+  },
+  {
+    "id": "ads",
+    "title": "Ads",
+    "description": "Creació i gestió de campanyes publicitàries digitals",
+    "basePrice": 400
+  },
+  {
+    "id": "web",
+    "title": "Web",
+    "description": "Disseny i desenvolupament de pàgines web adaptades a les teves necessitats.",
+    "basePrice": 500,
+    "basePagesIncluded": 1,
+    "baseLanguagesIncluded": 1,
+    "pricePerExtraPageOrLanguage": 30
+  }
+]

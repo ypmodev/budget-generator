@@ -1,0 +1,28 @@
+{
+  "bannerTitle": "Aconsegueix la millor qualitat",
+
+  "budgetTitle": "Configura el teu pressupost",
+  "budgetDescription": "Tria els serveis digitals que necessites i personalitza les opcions segons les teves necessitats.",
+
+  "addService": "Afegir",
+  "totalLabel": "Preu pressupostat:",
+
+  "webOptions": {
+    "pagesLabel": "Nombre de pàgines",
+    "languagesLabel": "Nombre de llenguatges",
+
+    "pagesDecrease": "Reduir el nombre de pàgines",
+    "languagesDecrease": "Reduir el nombre de llenguatges",
+
+    "pagesIncrease": "Augmentar el nombre de pàgines",
+    "languagesIncrease": "Augmentar el nombre de llenguatges"
+  },
+
+  "modal": {
+    "modalPageTitle": "Número de pàgines",
+    "modalPageInfo": "Has afegit una pàgina extra al teu web. El cost de cada pàgina addicional és de 30 €",
+
+    "modalLanguageTitle": "Número de llenguatges",
+    "modalLanguageInfo": "Has afegit un idioma extra al teu projecte. El cost de cada idioma addicional és de 30 €"
+  }
+}
