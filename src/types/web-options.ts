@@ -1,3 +1,5 @@
+export type ExtraOption = "pages" | "languages";
+
 export interface WebOptionsProps {
   pages: number;
   languages: number;
