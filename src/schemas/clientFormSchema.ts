@@ -6,7 +6,7 @@ export const formSchema = z.object({
     .string()
     .trim()
     .min(2, { error: texts.validationForm.nameRequired })
-    .regex(/^\S+\s+\S+/, { error: texts.validationForm.nameInvalid }),
+    .regex(/^\S+\s+\S+/, { error: texts.validationForm.phoneInvalid }),
 
   phone: z
     .string()

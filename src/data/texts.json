@@ -44,5 +44,14 @@
     "emailPlaceholder": "Email",
     "submitButton": "Sol·licitar pressupost",
     "submitButtonError": "Selecciona almenys un servei per generar el pressupost."
+  },
+
+  "history": {
+    "title": "Pressupostos en curs",
+    "empty": "Encara no hi ha pressupostos en curs",
+    "servicesLabel": "Serveis contractats:",
+    "totalLabel": "Total:",
+    "pages": "pàgines",
+    "languages": "llenguatges"
   }
 }
