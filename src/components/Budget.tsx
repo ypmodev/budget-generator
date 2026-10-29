@@ -10,6 +10,10 @@ import {
 } from "@/utils/calculateBudget";
 import FormClient from "@/components/FormClient";
 
+import { saveBudget } from "@/services/budgetStorage";
+import type { SavedBudget } from "@/types/saved-budget";
+import type { FormValues } from "@/schemas/clientFormSchema";
+
 const services = servicesData as ServiceType[];
 const baseCount = 1;
 
@@ -45,6 +49,28 @@ const Budget = () => {
     budget.pages,
     budget.languages,
   );
+  //const [savedBudgets, setSavedBudgets] = useState<SavedBudget[]>(getBudgets);
+
+  const handleSaveBudget = (clientData: FormValues) => {
+    const newBudget: SavedBudget = {
+      id: crypto.randomUUID(),
+      date: new Date().toISOString(),
+      client: clientData,
+      services: selectedServices.map((service) => service.title),
+      total: totalBudget.total,
+    };
+
+    if (budget.web) {
+      newBudget.web = {
+        pages: budget.pages,
+        languages: budget.languages,
+      };
+    }
+
+    saveBudget(newBudget);
+    console.log(newBudget);
+    // setSavedBudgets(getBudgets());
+  };
 
   return (
     <>
@@ -81,9 +107,10 @@ const Budget = () => {
         </p>
       </section>
       <section className="mx-auto mt-10 mb-10 w-full max-w-4xl px-4">
-        <FormClient 
+        <FormClient
           hasSelectedServices={selectedServices.length > 0}
-/> 
+          onSaveBudget={handleSaveBudget}
+        />
       </section>
     </>
   );

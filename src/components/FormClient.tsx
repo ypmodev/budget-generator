@@ -10,8 +10,10 @@ import { ArrowRight } from "lucide-react";
 
 const ClientForm = ({
   hasSelectedServices,
+  onSaveBudget,
 }: {
   hasSelectedServices: boolean;
+  onSaveBudget: (data: FormValues) => void;
 }) => {
   const {
     register,
@@ -30,7 +32,8 @@ const ClientForm = ({
     }
 
     setShowServiceError(false);
-    console.log(data);
+    onSaveBudget(data);
+    
   };
 
   return (
@@ -98,8 +101,8 @@ const ClientForm = ({
             <ArrowRight />
           </Button>
           {showServiceError && (
-            <p className="text-sm text-red-600" role="alert">
-              Selecciona almenys un servei per generar el pressupost.
+            <p className="col-span-full w-full text-left text-sm text-red-500">
+              {texts.clientForm.submitButtonError}
             </p>
           )}
         </form>

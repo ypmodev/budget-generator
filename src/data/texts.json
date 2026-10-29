@@ -27,11 +27,10 @@
   },
 
   "validationForm": {
-    "nameRequired": "El nombre es obligatorio",
-    "phoneRequired": "El teléfono es obligatorio",
-    "emailRequired": "El email es obligatorio",
-    "emailInvalid": "Introduce un email válido",
-    "nameInvalid": "Introdueix el nom i, com a mínim, un cognom",
+    "nameRequired": "El nom i els cognoms són obligatoris",
+    "phoneRequired": "El telèfon és obligatori",
+    "emailRequired": "El correu electrònic és obligatori",
+    "emailInvalid": "Introdueix un correu electrònic vàlid",
     "phoneInvalid": "Introdueix un telèfon vàlid (de 9 a 15 dígits, sense espais)"
   },
 
@@ -44,6 +43,6 @@
     "phonePlaceholder": "Telèfon",
     "emailPlaceholder": "Email",
     "submitButton": "Sol·licitar pressupost",
-    "submitButtonError":"Selecciona almenys un servei per generar el pressupost."
+    "submitButtonError": "Selecciona almenys un servei per generar el pressupost."
   }
 }
