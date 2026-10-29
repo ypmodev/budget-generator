@@ -43,6 +43,7 @@
     "namePlaceholder": "Nom i cognoms",
     "phonePlaceholder": "Telèfon",
     "emailPlaceholder": "Email",
-    "submitButton": "Sol·licitar pressupost"
+    "submitButton": "Sol·licitar pressupost",
+    "submitButtonError":"Selecciona almenys un servei per generar el pressupost."
   }
 }

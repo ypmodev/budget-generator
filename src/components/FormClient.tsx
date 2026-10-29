@@ -2,13 +2,17 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, type FormValues } from "@/schemas/clientFormSchema"; // ajusta la ruta al nombre real de tu archivo
 import { Card, CardContent } from "@/components/ui/card"; // CAMBIO: la misma Card que las tarjetas de servicio
-
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import texts from "@/data/texts.json";
 import { ArrowRight } from "lucide-react";
 
-const ClientForm = () => {
+const ClientForm = ({
+  hasSelectedServices,
+}: {
+  hasSelectedServices: boolean;
+}) => {
   const {
     register,
     handleSubmit,
@@ -17,7 +21,15 @@ const ClientForm = () => {
     resolver: zodResolver(formSchema),
   });
 
+  const [showServiceError, setShowServiceError] = useState(false);
+
   const onSubmit = (data: FormValues) => {
+    if (!hasSelectedServices) {
+      setShowServiceError(true);
+      return;
+    }
+
+    setShowServiceError(false);
     console.log(data);
   };
 
@@ -80,10 +92,16 @@ const ClientForm = () => {
 
           <Button
             type="submit"
-            className="w-full self-end bg-[#58af8c] font-semibold text-white hover:bg-[#58af8c]/90">
+            className="w-full self-end bg-[#151f1b] font-semibold text-white hover:bg-[#58af8c]/90"
+          >
             {texts.clientForm.submitButton}
             <ArrowRight />
           </Button>
+          {showServiceError && (
+            <p className="text-sm text-red-600" role="alert">
+              Selecciona almenys un servei per generar el pressupost.
+            </p>
+          )}
         </form>
       </CardContent>
     </Card>

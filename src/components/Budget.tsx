@@ -81,7 +81,9 @@ const Budget = () => {
         </p>
       </section>
       <section className="mx-auto mt-10 mb-10 w-full max-w-4xl px-4">
-        <FormClient />
+        <FormClient 
+          hasSelectedServices={selectedServices.length > 0}
+/> 
       </section>
     </>
   );
