@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { formSchema, type FormValues } from "@/schemas/clientFormSchema"; // ajusta la ruta al nombre real de tu archivo
-import { Card, CardContent } from "@/components/ui/card"; // CAMBIO: la misma Card que las tarjetas de servicio
+import { formSchema, type FormValues } from "@/schemas/clientFormSchema";
+import { Card, CardContent } from "@/components/ui/card"; 
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";

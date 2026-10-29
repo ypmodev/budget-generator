@@ -53,5 +53,13 @@
     "totalLabel": "Total:",
     "pages": "pàgines",
     "languages": "llenguatges"
+  },
+
+  "filters": {
+    "date": "Data",
+    "import": "Import",
+    "name": "Nom",
+    "search": "Buscar pressupostos...",
+    "noResults": "No s'han trobat resultats."
   }
 }
