@@ -10,6 +10,7 @@ import type { SortBy } from "@/utils/budgetFilters";
 const sortOptions: { value: SortBy; label: string }[] = [
   { value: "date", label: texts.filters.date },
   { value: "import", label: texts.filters.import },
+  { value: "name", label: texts.filters.name },
 ];
 
 const startsAscending = {
@@ -97,18 +98,13 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
               );
             })}
           </div>
-
-          <button
-            type="button"
-            className="whitespace-nowrap text-sm font-medium text-gray-600 hover:text-black"
-          >
-            {texts.filters.name}
-          </button>
         </div>
       </div>
 
       {filteredBudgets.length === 0 && (
-        <p className="text-sm text-gray-500">{texts.filters.noResults} </p>
+        <p className="mb-40 mt-20 text-sm text-gray-500">
+          {texts.filters.noResults}
+        </p>
       )}
 
       {filteredBudgets.length > 0 && (
