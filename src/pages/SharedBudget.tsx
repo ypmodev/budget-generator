@@ -88,8 +88,7 @@ const SharedBudget = () => {
                 key={serviceName}
                 className="rounded-2xl border-0 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)]"
               >
-                <CardContent className="grid grid-cols-2 items-center gap-4 p-4 md:grid-cols-3 md:p-6 lg:px-8">
-                  {/* Nombre y descripción */}
+                <CardContent className="grid grid-cols-[1fr_auto] items-center gap-4 p-4 md:grid-cols-[1fr_200px] md:gap-8 md:p-6 lg:px-8">
                   <div className="col-span-2 min-w-0 md:col-span-1">
                     <CardTitle className="mb-3 text-xl font-extrabold text-black md:text-2xl">
                       {serviceName}
@@ -101,13 +100,11 @@ const SharedBudget = () => {
                       </CardDescription>
                     )}
                   </div>
-
-                  <p className="text-left text-xl font-extrabold text-black whitespace-nowrap md:text-center md:text-3xl">
+                  <p className="whitespace-nowrap text-right text-xl font-extrabold text-black md:text-3xl">
                     {service ? `${service.basePrice} €` : ""}
                   </p>
-
                   {serviceName === "Web" && budget.web && (
-                    <div className="col-span-2 grid grid-cols-2 gap-4 rounded-xl bg-[#f0f7f3] p-4 md:col-span-3">
+                    <div className="col-span-2 grid grid-cols-2 gap-4 rounded-xl bg-[#f0f7f3] p-4">
                       <div>
                         <p className="mb-1 text-sm text-neutral-600">
                           {texts.sharedBudget.pagesLabel}
@@ -117,7 +114,6 @@ const SharedBudget = () => {
                           {budget.web.pages} {texts.history.pages}
                         </p>
                       </div>
-
                       <div>
                         <p className="mb-1 text-sm text-neutral-600">
                           {texts.sharedBudget.languagesLabel}
