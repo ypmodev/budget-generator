@@ -21,9 +21,15 @@ export const sortBudgets = (
   isAscending: boolean,
 ): SavedBudget[] => {
   const sorted = [...budgets].sort((a, b) => {
-    return a.date.localeCompare(b.date);
-  });
+    if (sortBy === "date") {
+      return a.date.localeCompare(b.date);
+    }
+    if (sortBy === "import") {
+      return a.total - b.total;
+    }
 
+    return 0;
+  });
   if (isAscending) {
     return sorted;
   }
