@@ -4,36 +4,36 @@ import texts from "@/data/texts.json";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import { searchBudgets, sortBudgetsByDate } from "@/utils/budgetFilters";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import type { DateOrder } from "@/utils/budgetFilters";
+import { searchBudgets, sortBudgets } from "@/utils/budgetFilters";
+import type { SortBy } from "@/utils/budgetFilters";
 
-const dateOptions: { value: DateOrder; label: string }[] = [
+const sortOptions: { value: SortBy; label: string }[] = [
   { value: "date", label: texts.filters.date },
-  { value: "desc", label: texts.filters.newest },
-  { value: "asc", label: texts.filters.oldest },
 ];
+
+const startsAscending = {
+  date: false,
+  import: false,
+  name: false,
+};
 
 const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
-  const [dateOrder, setDateOrder] = useState<DateOrder>("date");
-  const filteredBudgets = searchBudgets(budgets, search);
-  const sortedBudgets = sortBudgetsByDate(filteredBudgets, dateOrder);
+  const [sortBy, setSortBy] = useState<SortBy>("date");
+  const [isAscending, setIsAscending] = useState(false);
 
-  let selectedLabel = "";
-  const selectedOption = dateOptions.find(
-    (option) => option.value === dateOrder,
-  );
-  if (selectedOption) {
-    selectedLabel = selectedOption.label;
-  }
+  const filteredBudgets = searchBudgets(budgets, search);
+  const sortedBudgets = sortBudgets(filteredBudgets, sortBy, isAscending);
+
+  const handleSort = (newSortBy: SortBy) => {
+    if (newSortBy === sortBy) {
+      setIsAscending(!isAscending);
+    } else {
+      setSortBy(newSortBy);
+      setIsAscending(startsAscending[newSortBy]);
+    }
+  };
 
   const toggleSearch = () => {
     if (showSearch) setSearch("");
@@ -68,22 +68,35 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
               className="w-64"
             />
           )}
-          <Select
-            value={dateOrder}
-            onValueChange={(value) => value && setDateOrder(value as DateOrder)}
-          >
-            <SelectTrigger className="w-auto border-0 shadow-none focus:ring-0">
-              <SelectValue>{selectedLabel}</SelectValue>
-            </SelectTrigger>
 
-            <SelectContent>
-              {dateOptions.map((option) => (
-                <SelectItem key={option.value} value={option.value}>
+          <div
+            role="group"
+            aria-label={texts.filters.sortBy}
+            className="flex items-center gap-5"
+          >
+            {sortOptions.map((option) => {
+              const isActive = sortBy === option.value;
+
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => handleSort(option.value)}
+                  aria-pressed={isActive}
+                  className={`whitespace-nowrap text-sm hover:text-black ${
+                    isActive
+                      ? "font-bold text-black"
+                      : "font-medium text-gray-600"
+                  }`}
+                >
                   {option.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+                  {isActive && (
+                    <span aria-hidden="true"> {isAscending ? "↑" : "↓"}</span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
           <button
             type="button"
             className="whitespace-nowrap text-sm font-medium text-gray-600 hover:text-black"

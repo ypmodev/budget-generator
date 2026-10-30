@@ -1,5 +1,5 @@
 import type { SavedBudget } from "@/types/saved-budget";
-export type DateOrder = "date" | "desc" | "asc";
+export type SortBy = "date" | "import" | "name";
 
 export const searchBudgets = (
   budgets: SavedBudget[],
@@ -15,15 +15,18 @@ export const searchBudgets = (
   );
 };
 
-export const sortBudgetsByDate = (
+export const sortBudgets = (
   budgets: SavedBudget[],
-  dateOrder: DateOrder,
+  sortBy: SortBy,
+  isAscending: boolean,
 ): SavedBudget[] => {
-  return [...budgets].sort((a, b) => {
-    if (dateOrder === "asc") {
-      return a.date.localeCompare(b.date);
-    }
-
-    return b.date.localeCompare(a.date);
+  const sorted = [...budgets].sort((a, b) => {
+    return a.date.localeCompare(b.date);
   });
+
+  if (isAscending) {
+    return sorted;
+  }
+
+  return sorted.reverse();
 };
