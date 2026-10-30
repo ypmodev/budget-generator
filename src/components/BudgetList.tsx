@@ -4,14 +4,41 @@ import texts from "@/data/texts.json";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import { searchBudgets } from "@/utils/budgetFilters";
+import { searchBudgets, sortBudgetsByDate } from "@/utils/budgetFilters";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import type { DateOrder } from "@/utils/budgetFilters";
+
+const dateOptions: { value: DateOrder; label: string }[] = [
+  { value: "date", label: texts.filters.date },
+  { value: "desc", label: texts.filters.newest },
+  { value: "asc", label: texts.filters.oldest },
+];
 
 const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
-
+  const [dateOrder, setDateOrder] = useState<DateOrder>("date");
   const filteredBudgets = searchBudgets(budgets, search);
+  const sortedBudgets = sortBudgetsByDate(filteredBudgets, dateOrder);
 
+  let selectedLabel = "";
+  const selectedOption = dateOptions.find(
+    (option) => option.value === dateOrder,
+  );
+  if (selectedOption) {
+    selectedLabel = selectedOption.label;
+  }
+
+  const toggleSearch = () => {
+    if (showSearch) setSearch("");
+    setShowSearch(!showSearch);
+  };
   if (budgets.length === 0) {
     return <p className="text-sm font-medium">{texts.history.empty}</p>;
   }
@@ -24,23 +51,39 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
         </h2>
 
         <div className="flex items-center justify-end gap-5">
-          <button type="button" onClick={() => setShowSearch(!showSearch)}>
-            <Search className="h-5 w-5" />
+          <button
+            type="button"
+            onClick={toggleSearch}
+            aria-label={texts.filters.toggleSearch}
+            aria-expanded={showSearch}
+          >
+            <Search className="h-5 w-5" aria-hidden="true" />
           </button>
           {showSearch && (
             <Input
+              aria-label={texts.filters.search}
               placeholder={texts.filters.search}
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(event) => setSearch(event.target.value)}
               className="w-64"
             />
           )}
-          <button
-            type="button"
-            className="whitespace-nowrap text-sm font-medium text-gray-600 hover:text-black"
+          <Select
+            value={dateOrder}
+            onValueChange={(value) => value && setDateOrder(value as DateOrder)}
           >
-            {texts.filters.date}
-          </button>
+            <SelectTrigger className="w-auto border-0 shadow-none focus:ring-0">
+              <SelectValue>{selectedLabel}</SelectValue>
+            </SelectTrigger>
+
+            <SelectContent>
+              {dateOptions.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <button
             type="button"
             className="whitespace-nowrap text-sm font-medium text-gray-600 hover:text-black"
@@ -62,7 +105,7 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
 
       {filteredBudgets.length > 0 && (
         <ul className="space-y-5">
-          {filteredBudgets.map((item) => (
+          {sortedBudgets.map((item) => (
             <li key={item.id}>
               <Card className="rounded-2xl border-0 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)]">
                 <CardContent className="grid grid-cols-1 gap-4 p-4 md:grid-cols-3 md:p-6">

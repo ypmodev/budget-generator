@@ -57,9 +57,13 @@
 
   "filters": {
     "date": "Data",
+    "newest": "Més recents",
+    "oldest": "Més antics",
     "import": "Import",
     "name": "Nom",
     "search": "Buscar pressupostos...",
-    "noResults": "No s'han trobat resultats."
+    "noResults": "No s'han trobat resultats.",
+    "toggleSearch": "Cercar",
+    "sortByDate": "Ordenar per data"
   }
 }
