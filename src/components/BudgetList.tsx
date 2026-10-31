@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { searchBudgets, sortBudgets } from "@/utils/budgetFilters";
 import type { SortBy } from "@/utils/budgetFilters";
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 const sortOptions: { value: SortBy; label: string }[] = [
   { value: "date", label: texts.filters.date },
@@ -28,7 +28,6 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
 
   const filteredBudgets = searchBudgets(budgets, search);
   const sortedBudgets = sortBudgets(filteredBudgets, sortBy, isAscending);
-  const navigate = useNavigate();
 
   const handleSort = (newSortBy: SortBy) => {
     if (newSortBy === sortBy) {
@@ -113,50 +112,47 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
         <ul className="space-y-5">
           {sortedBudgets.map((item) => (
             <li key={item.id}>
-              <Card
-                role="link"
-                tabIndex={0}
-                onClick={() => navigate(`/budget/${item.id}`)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
-                    navigate(`/budget/${item.id}`);
-                  }
-                }}
-                className="cursor-pointer rounded-2xl border-2 border-transparent bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)] transition-all duration-200 hover:border-[#58af8c] hover:bg-[#f0f7f3] hover:shadow-md"
+              <Link
+                to={`/budget/${item.id}`}
+                className="block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#58af8c]"
               >
-                <CardContent className="grid grid-cols-1 gap-4 p-4 md:grid-cols-3 md:p-6">
-                  <div>
-                    <p className="text-xl font-extrabold">{item.client.name}</p>
-                    <p className="text-sm">{item.client.email}</p>
-                    <p className="text-sm">{item.client.phone}</p>
-                    <p className="text-sm">
-                      {new Date(item.date).toLocaleDateString()}
+                <Card className="cursor-pointer rounded-2xl border-2 border-transparent bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)] transition-all duration-200 hover:border-[#58af8c] hover:bg-[#f0f7f3] hover:shadow-md">
+                  <CardContent className="grid grid-cols-1 gap-4 p-4 md:grid-cols-3 md:p-6">
+                    <div>
+                      <p className="text-xl font-extrabold">
+                        {item.client.name}
+                      </p>
+                      <p className="text-sm">{item.client.email}</p>
+                      <p className="text-sm">{item.client.phone}</p>
+                      <p className="text-sm">
+                        {new Date(item.date).toLocaleDateString()}
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="font-bold">{texts.history.servicesLabel}</p>
+                      <ul className="list-disc pl-5 text-sm">
+                        {item.services.map((service) => (
+                          <li key={service}>
+                            {service === "Web" && item.web
+                              ? `Web (${item.web.pages} ${texts.history.pages}, ${item.web.languages} ${texts.history.languages})`
+                              : service}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <p className="md:text-right">
+                      <span className="font-bold">
+                        {texts.history.totalLabel}
+                      </span>
+                      <span className="block text-3xl font-extrabold">
+                        {item.total} €
+                      </span>
                     </p>
-                  </div>
-
-                  <div>
-                    <p className="font-bold">{texts.history.servicesLabel}</p>
-                    <ul className="list-disc pl-5 text-sm">
-                      {item.services.map((service) => (
-                        <li key={service}>
-                          {service === "Web" && item.web
-                            ? `Web (${item.web.pages} ${texts.history.pages}, ${item.web.languages} ${texts.history.languages})`
-                            : service}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <p className="md:text-right">
-                    <span className="font-bold">
-                      {texts.history.totalLabel}
-                    </span>
-                    <span className="block text-3xl font-extrabold">
-                      {item.total} €
-                    </span>
-                  </p>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </Link>
             </li>
           ))}
         </ul>
