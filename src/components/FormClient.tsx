@@ -42,7 +42,7 @@ const ClientForm = ({
   return (
     <Card className="rounded-2xl border-0 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)]">
       <CardContent className="p-4 md:p-6 lg:px-8">
-        <h2 className="mb-4 text-xl font-extrabold text-black md:text-2xl">
+        <h2 className="mb-4 text-xl font-extrabold text-black">
           {texts.clientForm.title}
         </h2>
 
@@ -110,7 +110,7 @@ const ClientForm = ({
 
           <Button
             type="submit"
-            className="w-full self-end bg-[#151f1b] font-semibold text-white hover:bg-[#58af8c]/90"
+            className="w-full self-end bg-[#58af8c] font-semibold text-white hover:bg-[#469875]"
           >
             {texts.clientForm.submitButton}
             <ArrowRight />

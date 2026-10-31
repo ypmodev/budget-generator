@@ -77,7 +77,7 @@ const Budget = () => {
   return (
     <>
       <section className="mx-auto w-full max-w-4xl px-4 pt-8 pb-4 md:pt-12">
-        <h2 className="text-l font-extrabold text-black md:text-2xl lg:text-3xl">
+        <h2 className="text-lg font-extrabold text-black md:text-2xl lg:text-3xl">
           {texts.budgetTitle}
         </h2>
 

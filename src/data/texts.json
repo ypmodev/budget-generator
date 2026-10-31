@@ -23,7 +23,7 @@
     "modalPageInfo": "Has afegit una pàgina extra al teu web. El cost de cada pàgina addicional és de 30 €",
 
     "modalLanguageTitle": "Número de llenguatges",
-    "modalLanguageInfo": "Has afegit un idioma extra al teu projecte. El cost de cada idioma addicional és de 30 €"
+    "modalLanguageInfo": "Has afegit un llenguatge extra al teu projecte. El cost de cada idioma addicional és de 30 €"
   },
 
   "validationForm": {
@@ -76,7 +76,7 @@
     "webDetails": "Detalls del servei web",
     "pagesLabel": "Nombre de pàgines",
     "languagesLabel": "Nombre de llenguatges",
-    "totalLabel": "Preu pressupostat:",
+    "totalLabel": "Preu total del pressupost:",
     "notFound": "No s'ha trobat el pressupost.",
 
     "shareButton": "Compartir",

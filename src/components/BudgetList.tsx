@@ -17,7 +17,7 @@ const sortOptions: { value: SortBy; label: string }[] = [
 const startsAscending = {
   date: false,
   import: false,
-  name: false,
+  name: true,
 };
 
 const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
@@ -48,12 +48,13 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
 
   return (
     <section>
-      <div className="mb-5 flex items-center justify-between gap-4">
+      <div className="mb-3 flex  flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <h2 className="text-xl font-extrabold text-black md:text-2xl">
           {texts.history.title}
         </h2>
 
-        <div className="flex items-center justify-end gap-5">
+        <div className="flex items-center justify-end gap-2">
+          {" "}
           <button
             type="button"
             onClick={toggleSearch}
@@ -68,14 +69,13 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
               placeholder={texts.filters.search}
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              className="w-64"
+              className="w-36 md:w-64"
             />
           )}
-
           <div
             role="group"
             aria-label={texts.filters.sortBy}
-            className="flex items-center gap-5"
+            className="flex items-center gap-2 md:gap-5"
           >
             {sortOptions.map((option) => {
               const isActive = sortBy === option.value;
