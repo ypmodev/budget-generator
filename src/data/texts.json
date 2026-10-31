@@ -43,7 +43,8 @@
     "phonePlaceholder": "Telèfon",
     "emailPlaceholder": "Email",
     "submitButton": "Sol·licitar pressupost",
-    "submitButtonError": "Selecciona almenys un servei per generar el pressupost."
+    "submitButtonError": "Selecciona almenys un servei per generar el pressupost.",
+    "successMessage": "Pressupost generat correctament!"
   },
 
   "history": {
