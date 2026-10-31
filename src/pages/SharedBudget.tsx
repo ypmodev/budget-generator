@@ -3,6 +3,8 @@ import { getBudgets } from "@/services/budgetStorage";
 import texts from "@/data/texts.json";
 import servicesData from "@/data/services.json";
 import type { ServiceType } from "@/types/service";
+import { Share2 } from "lucide-react";
+import { toast } from "sonner";
 
 import {
   Card,
@@ -28,7 +30,19 @@ const SharedBudget = () => {
       </main>
     );
   }
+  const handleShare = async () => {
+    if (!id) return;
 
+    const url = `${window.location.origin}/budget/${id}`;
+
+    try {
+      await navigator.clipboard.writeText(url);
+      toast.success(texts.sharedBudget.shareSuccess);
+    } catch (error) {
+      console.error("Error en copiar l'enllaç:", error);
+      toast.error(texts.sharedBudget.shareError);
+    }
+  };
   return (
     <main className="mx-auto max-w-3xl space-y-6 px-4 py-8 md:py-10">
       <section>
@@ -131,13 +145,25 @@ const SharedBudget = () => {
           })}
         </div>
       </section>
+      <div className="flex flex-wrap items-center justify-between gap-4 py-3">
+        <div className="flex items-center gap-3">
+          <p className="font-bold text-black">
+            {texts.sharedBudget.totalLabel}
+          </p>
 
-      <div className="flex items-center justify-end gap-3 py-3">
-        <p className="font-bold text-black">{texts.sharedBudget.totalLabel}</p>
+          <p className="whitespace-nowrap text-2xl font-extrabold text-black md:text-3xl">
+            {budget.total} €
+          </p>
+        </div>
 
-        <p className="whitespace-nowrap text-2xl font-extrabold text-black md:text-3xl">
-          {budget.total} €
-        </p>
+        <button
+          type="button"
+          onClick={handleShare}
+          className="flex items-center gap-2 rounded-lg bg-[#58af8c] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#469875]"
+        >
+          <Share2 size={18} />
+          {texts.sharedBudget.shareButton}
+        </button>
       </div>
     </main>
   );

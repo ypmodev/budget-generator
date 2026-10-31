@@ -76,6 +76,10 @@
     "pagesLabel": "Nombre de pàgines",
     "languagesLabel": "Nombre de llenguatges",
     "totalLabel": "Preu pressupostat:",
-    "notFound": "No s'ha trobat el pressupost."
+    "notFound": "No s'ha trobat el pressupost.",
+
+    "shareButton": "Compartir",
+    "shareSuccess": "Enllaç copiat correctament!",
+    "shareError": "No s'ha pogut copiar l'enllaç."
   }
 }
