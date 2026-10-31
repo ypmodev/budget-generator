@@ -63,5 +63,23 @@
     "search": "Buscar pressupostos...",
     "noResults": "No s'han trobat resultats.",
     "toggleSearch": "Cercar"
+  },
+  "sharedBudget": {
+    "title": "Detall del pressupost",
+    "description": "Consulta els detalls del pressupost que has sol·licitat.",
+    "clientTitle": "Dades del client",
+    "servicesTitle": "Serveis contractats",
+    "nameLabel": "Nom i cognoms",
+    "phoneLabel": "Telèfon",
+    "emailLabel": "Email",
+    "webDetails": "Detalls del servei web",
+    "pagesLabel": "Nombre de pàgines",
+    "languagesLabel": "Nombre de llenguatges",
+    "totalLabel": "Preu pressupostat:",
+    "notFound": "No s'ha trobat el pressupost.",
+
+    "shareButton": "Compartir",
+    "shareSuccess": "Enllaç copiat correctament!",
+    "shareError": "No s'ha pogut copiar l'enllaç."
   }
 }

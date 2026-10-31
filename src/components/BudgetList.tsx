@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { searchBudgets, sortBudgets } from "@/utils/budgetFilters";
 import type { SortBy } from "@/utils/budgetFilters";
+import { useNavigate } from "react-router";
 
 const sortOptions: { value: SortBy; label: string }[] = [
   { value: "date", label: texts.filters.date },
@@ -27,6 +28,7 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
 
   const filteredBudgets = searchBudgets(budgets, search);
   const sortedBudgets = sortBudgets(filteredBudgets, sortBy, isAscending);
+  const navigate = useNavigate();
 
   const handleSort = (newSortBy: SortBy) => {
     if (newSortBy === sortBy) {
@@ -111,7 +113,17 @@ const BudgetList = ({ budgets }: { budgets: SavedBudget[] }) => {
         <ul className="space-y-5">
           {sortedBudgets.map((item) => (
             <li key={item.id}>
-              <Card className="rounded-2xl border-0 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)]">
+              <Card
+                role="link"
+                tabIndex={0}
+                onClick={() => navigate(`/budget/${item.id}`)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    navigate(`/budget/${item.id}`);
+                  }
+                }}
+                className="cursor-pointer rounded-2xl border-2 border-transparent bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)] transition-all duration-200 hover:border-[#58af8c] hover:bg-[#f0f7f3] hover:shadow-md"
+              >
                 <CardContent className="grid grid-cols-1 gap-4 p-4 md:grid-cols-3 md:p-6">
                   <div>
                     <p className="text-xl font-extrabold">{item.client.name}</p>
