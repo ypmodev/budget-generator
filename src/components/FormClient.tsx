@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, type FormValues } from "@/schemas/clientFormSchema";
-import { Card, CardContent } from "@/components/ui/card"; 
+import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import texts from "@/data/texts.json";
 import { ArrowRight } from "lucide-react";
+import { toast } from "sonner";
 
 const ClientForm = ({
   hasSelectedServices,
@@ -18,6 +19,7 @@ const ClientForm = ({
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -33,13 +35,14 @@ const ClientForm = ({
 
     setShowServiceError(false);
     onSaveBudget(data);
-    
+    reset();
+    toast.success(texts.clientForm.successMessage);
   };
 
   return (
     <Card className="rounded-2xl border-0 bg-white shadow-[0_3px_8px_rgba(0,0,0,0.16)]">
       <CardContent className="p-4 md:p-6 lg:px-8">
-        <h2 className="mb-4 text-xl font-extrabold text-black md:text-2xl">
+        <h2 className="mb-4 text-xl font-extrabold text-black">
           {texts.clientForm.title}
         </h2>
 
@@ -57,9 +60,13 @@ const ClientForm = ({
               id="name"
               placeholder={texts.clientForm.namePlaceholder}
               {...register("name")}
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? "name-error" : undefined}
             />
             {errors.name && (
-              <p className="text-sm text-red-700">{errors.name.message}</p>
+              <p id="name-error" role="alert" className="text-sm text-red-700">
+                {errors.name.message}
+              </p>
             )}
           </div>
 
@@ -72,9 +79,13 @@ const ClientForm = ({
               type="tel"
               placeholder={texts.clientForm.phonePlaceholder}
               {...register("phone")}
+              aria-invalid={!!errors.phone}
+              aria-describedby={errors.phone ? "phone-error" : undefined}
             />
             {errors.phone && (
-              <p className="text-sm text-red-700">{errors.phone.message}</p>
+              <p id="phone-error" role="alert" className="text-sm text-red-700">
+                {errors.phone.message}
+              </p>
             )}
           </div>
 
@@ -87,21 +98,25 @@ const ClientForm = ({
               type="email"
               placeholder={texts.clientForm.emailPlaceholder}
               {...register("email")}
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? "email-error" : undefined}
             />
             {errors.email && (
-              <p className="text-sm text-red-700">{errors.email.message}</p>
+              <p id="email-error" role="alert" className="text-sm text-red-700">
+                {errors.email.message}
+              </p>
             )}
           </div>
 
           <Button
             type="submit"
-            className="w-full self-end bg-[#151f1b] font-semibold text-white hover:bg-[#58af8c]/90"
+            className="w-full self-end bg-[#58af8c] font-semibold text-white hover:bg-[#469875]"
           >
             {texts.clientForm.submitButton}
             <ArrowRight />
           </Button>
-          {showServiceError && (
-            <p className="col-span-full w-full text-left text-sm text-red-500">
+          {showServiceError && !hasSelectedServices && (
+            <p role="alert" className="col-span-full text-sm text-red-500">
               {texts.clientForm.submitButtonError}
             </p>
           )}
