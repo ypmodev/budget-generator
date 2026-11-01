@@ -2,7 +2,7 @@
 
 Web application (SPA) that instantly calculates personalized budgets for digital marketing and web development services. Users can select services, configure their options, enter their details and get a unique link to view or share their budget.
 
-**Demo:** [Budget – Budget generator](https://ypmodev.github.io/budget-generator/)
+**Demo:** [Budget – Budget generator](https://budget-generator-tan.vercel.app)
 ## Application preview
 
 <table>
