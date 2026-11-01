@@ -1,70 +1,70 @@
-# 💰 Budget: Generador de presupuestos de servicios digitales
+# 💰 Budget: Digital services budget generator
 
-Aplicación web (SPA) que permite calcular al instante presupuestos personalizados de servicios de marketing digital y desarrollo web. Los usuarios pueden seleccionar servicios, configurar sus opciones, introducir sus datos y obtener un enlace único para consultar o compartir su presupuesto.
+Web application (SPA) that instantly calculates personalized budgets for digital marketing and web development services. Users can select services, configure their options, enter their details and get a unique link to view or share their budget.
 
-**Demo:** [Budget – Generador de presupuestos](https://ypmodev.github.io/budget-generator/)
-## Vista previa de la aplicación
+**Demo:** [Budget – Budget generator](https://ypmodev.github.io/budget-generator/)
+## Application preview
 
 <table>
   <tr>
     <td width="33%" align="center">
-      <strong>Selección de servicios</strong><br />
+      <strong>Service selection</strong><br />
       <img src="./docs/screenshots/budget-services.jpg"
-           alt="Selección de servicios"
+           alt="Service selection"
            height="300" />
     </td>
     <td width="33%" align="center">
-      <strong>Formulario y presupuestos</strong><br />
+      <strong>Form and budgets</strong><br />
       <img src="./docs/screenshots/client-form.jpg"
-           alt="Formulario y presupuestos"
+           alt="Form and budgets"
            height="300" />
     </td>
     <td width="33%" align="center">
-      <strong>Presupuesto compartido</strong><br />
+      <strong>Shared budget</strong><br />
       <img src="./docs/screenshots/shared-budget.jpg"
-           alt="Presupuesto compartido"
+           alt="Shared budget"
            height="300" />
     </td>
   </tr>
 </table>
 
-## Funcionalidades
+## Features
 
-- **Nivel 1: Creación del presupuesto**
-  - Selección de servicios (SEO, Ads y Web) mediante casillas de verificación (_checkboxes_).
-  - Configurador del servicio Web (número de páginas e idiomas), con un aviso informativo sobre los costes adicionales.
-  - Cálculo dinámico del importe total.
-  - Formulario con los datos del cliente (nombre y apellidos, teléfono y email), con validación.
+- **Level 1: Budget creation**
+  - Service selection (SEO, Ads and Web) using checkboxes.
+  - Web service configurator (number of pages and languages), with an informational notice about additional costs.
+  - Dynamic calculation of the total amount.
+  - Form with the client's details (full name, phone number and email), with validation.
 
-- **Nivel 2: Histórico de presupuestos**
-  - Listado de presupuestos generados, con acceso al detalle de cada uno.
-  - Búsqueda por nombre, email o teléfono.
-  - Ordenación por fecha, importe o nombre.
+- **Level 2: Budget history**
+  - List of generated budgets, with access to the details of each one.
+  - Search by name, email or phone number.
+  - Sorting by date, amount or name.
 
-- **Nivel 3: Compartir presupuestos**
-  - URL única para cada presupuesto (`/budget/:id`), con la fecha, los datos del cliente, los servicios seleccionados, el desglose y el importe total.
-  - Botón para copiar el enlace.
+- **Level 3: Sharing budgets**
+  - Unique URL for each budget (`/budget/:id`), including the date, the client's details, the selected services, the breakdown and the total amount.
+  - Button to copy the link.
 
-  ## Tecnologías
+  ## Technologies
 
-- **React, TypeScript y Vite:** desarrollo de una aplicación de página única (SPA) con tipado estático.
-- **Tailwind CSS y shadcn/ui:** diseño _mobile-first_, con breakpoints `md` y `lg`, y componentes accesibles.
-- **React Router:** gestión de las rutas de la aplicación y del detalle de cada presupuesto.
-- **React Hook Form, Zod y @hookform/resolvers:** gestión del formulario y validación de datos.
-- **Sonner y lucide-react:** notificaciones e iconos.
-- **localStorage:** almacenamiento local y persistencia de los presupuestos.
-- **Vitest y React Testing Library:** pruebas unitarias y de componentes.
+- **React, TypeScript and Vite:** development of a single-page application (SPA) with static typing.
+- **Tailwind CSS and shadcn/ui:** _mobile-first_ design, with `md` and `lg` breakpoints, and accessible components.
+- **React Router:** management of the application routes and of each budget's detail page.
+- **React Hook Form, Zod and @hookform/resolvers:** form management and data validation.
+- **Sonner and lucide-react:** notifications and icons.
+- **localStorage:** local storage and persistence of budgets.
+- **Vitest and React Testing Library:** unit and component tests.
 
-## Instalación y uso
+## Installation and usage
 
-### Requisitos
+### Requirements
 
 - Node.js 22
 - npm
 
-### Instalación
+### Installation
 
-Clona el repositorio e instala las dependencias:
+Clone the repository and install the dependencies:
 
 ```bash
 git clone https://github.com/ypmodev/budget-generator.git
@@ -72,100 +72,100 @@ cd budget-generator
 npm install
 ```
 
-### Ejecutar en local
+### Run locally
 
 ```bash
 npm run dev
 ```
 
-Abre en el navegador la URL que muestra la terminal.
+Open the URL shown in the terminal in your browser.
 
-### Otros comandos disponibles
+### Other available commands
 
-| Comando                     | Descripción                                              |
+| Command                     | Description                                              |
 | --------------------------- | -------------------------------------------------------- |
-| `npm run build`             | Genera la versión de producción en `dist/`.              |
-| `npm run preview`           | Permite previsualizar la versión de producción en local. |
-| `npx vitest run`            | Ejecuta las pruebas automatizadas.                       |
-| `npx vitest run --coverage` | Ejecuta las pruebas y genera el informe de cobertura.    |
+| `npm run build`             | Generates the production version in `dist/`.             |
+| `npm run preview`           | Lets you preview the production version locally.         |
+| `npx vitest run`            | Runs the automated tests.                                |
+| `npx vitest run --coverage` | Runs the tests and generates the coverage report.        |
 
-## Cómo utilizar la aplicación
+## How to use the application
 
-1. Selecciona los servicios que necesitas. El importe total se actualiza automáticamente.
-2. Si seleccionas Web, configura el número de páginas e idiomas mediante los botones `+` y `−`. La primera vez que pulses `+`, aparecerá un aviso informativo sobre el coste de los extras (30 € por cada página o idioma adicional).
-3. Introduce tus datos y pulsa **Sol·licitar pressupost**. Es necesario seleccionar al menos un servicio.
-4. El presupuesto aparecerá en la lista **Pressupostos en curs**, desde donde podrás buscar y ordenar los presupuestos.
-5. Selecciona un presupuesto para consultar su detalle y utiliza el botón de compartir para copiar su enlace.
+1. Select the services you need. The total amount updates automatically.
+2. If you select Web, set the number of pages and languages using the `+` and `−` buttons. The first time you press `+`, an informational notice about the cost of extras will appear (€30 for each additional page or language).
+3. Enter your details and press **Sol·licitar pressupost**. At least one service must be selected.
+4. The budget will appear in the **Pressupostos en curs** list, where you can search and sort budgets.
+5. Select a budget to view its details and use the share button to copy its link.
 
-## Estructura del proyecto
+## Project structure
 
 ```text
 src/
 ├── components/
-│   ├── layout/              Layout (estructura general de la aplicación)
-│   ├── ui/                  Componentes base de shadcn/ui
-│   ├── Budget.tsx           Componente principal de creación del presupuesto
-│   ├── BudgetList.tsx       Listado e histórico de presupuestos
-│   ├── ServiceCard.tsx      Tarjeta de selección de servicios
-│   ├── WebOptions.tsx       Configuración de extras de web
-│   ├── ExtraCostModal.tsx   Modal informativo sobre costes adicionales
-│   ├── FormClient.tsx       Formulario de datos del cliente
-│   └── Banner.tsx           Banner de la aplicación
-├── data/                    services.json y texts.json (datos y textos editables)
-├── lib/                     utils.ts (función auxiliar de shadcn/ui)
-├── pages/                   SharedBudget (detalle de un presupuesto)
-├── router/                  router.tsx (configuración de rutas)
-├── schemas/                 clientFormSchema.ts (validación del formulario)
-├── services/                budgetStorage.ts (único acceso a localStorage)
-├── test/                    ServiceCard.test.tsx y utils.test.ts
-├── types/                   Tipos compartidos
-└── utils/                   calculateBudget.ts y budgetFilters.ts (lógica sin React)
+│   ├── layout/              Layout (general application structure)
+│   ├── ui/                  Base shadcn/ui components
+│   ├── Budget.tsx           Main budget creation component
+│   ├── BudgetList.tsx       Budget list and history
+│   ├── ServiceCard.tsx      Service selection card
+│   ├── WebOptions.tsx       Web extras configuration
+│   ├── ExtraCostModal.tsx   Informational modal about additional costs
+│   ├── FormClient.tsx       Client details form
+│   └── Banner.tsx           Application banner
+├── data/                    services.json and texts.json (editable data and texts)
+├── lib/                     utils.ts (shadcn/ui helper function)
+├── pages/                   SharedBudget (budget detail)
+├── router/                  router.tsx (route configuration)
+├── schemas/                 clientFormSchema.ts (form validation)
+├── services/                budgetStorage.ts (only access to localStorage)
+├── test/                    ServiceCard.test.tsx and utils.test.ts
+├── types/                   Shared types
+└── utils/                   calculateBudget.ts and budgetFilters.ts (logic without React)
 
-features/                    Escenarios Gherkin
-public/images/               Banner de la aplicación
+features/                    Gherkin scenarios
+public/images/               Application banner
 ```
 
-Los componentes gestionan la interfaz, `utils/` contiene las funciones de cálculo y filtrado, y `services/` se encarga del almacenamiento de los presupuestos.
+The components manage the interface, `utils/` contains the calculation and filtering functions, and `services/` handles budget storage.
 
-## Pruebas
+## Tests
 
-El proyecto utiliza **Vitest** y **React Testing Library** para realizar pruebas unitarias y de componentes.
+The project uses **Vitest** and **React Testing Library** to run unit and component tests.
 
-Las pruebas automatizadas comprueban los siguientes comportamientos:
+The automated tests check the following behaviors:
 
-- `ServiceCard`: selección de un servicio mediante el checkbox.
-- `calculateExtraCostWeb`: cálculo del coste de las páginas adicionales y comprobación de que el coste es cero cuando no hay extras.
-- `getSelectedServices`: obtención de los servicios seleccionados.
+- `ServiceCard`: selecting a service using the checkbox.
+- `calculateExtraCostWeb`: calculation of the cost of additional pages and check that the cost is zero when there are no extras.
+- `getSelectedServices`: retrieval of the selected services.
 
-Los escenarios de comportamiento están documentados por separado en `features/services.feature`, siguiendo la sintaxis Gherkin (`Given / When / Then`).
+The behavior scenarios are documented separately in `features/services.feature`, following Gherkin syntax (`Given / When / Then`).
 
-## Calidad y accesibilidad
+## Quality and accessibility
 
-Las métricas se han obtenido con **Lighthouse**, en una ventana de incógnito y sobre la versión de producción generada mediante `npm run build`.
+The metrics were obtained with **Lighthouse**, in an incognito window and on the production version generated with `npm run build`.
 
-### Capturas de Lighthouse
+### Lighthouse screenshots
 
 <table>
   <tr>
     <td width="50%" align="center">
       <img
         src="./docs/lighthouse/lighthouse-desktop.jpg"
-        alt="Resultados de Lighthouse en escritorio"
+        alt="Lighthouse results on desktop"
         width="100%"
       />
     </td>
     <td width="50%" align="center">
       <img
         src="./docs/lighthouse/lighthouse-mobile.jpg"
-        alt="Resultados de Lighthouse en móvil"
+        alt="Lighthouse results on mobile"
         width="95%"
       />
     </td>
   </tr>
 </table>
 
-**Accesibilidad:** la aplicación incorpora HTML semántico, etiquetas asociadas a los campos del formulario, atributos ARIA (`aria-invalid`, `aria-describedby`, `role="alert"`), navegación mediante teclado, foco visible y un modal accesible.
+**Accessibility:** the application includes semantic HTML, labels associated with the form fields, ARIA attributes (`aria-invalid`, `aria-describedby`, `role="alert"`), keyboard navigation, visible focus and an accessible modal.
 
-## Autoría
+## Authorship
 
 **Yanet Pérez** ([@ypmodev](https://github.com/ypmodev))
