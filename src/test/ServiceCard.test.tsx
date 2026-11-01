@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 import ServiceCard from "@/components/ServiceCard";
 
-describe("ServiceCard", () => {
-  test("Select service when clicking checkbox", () => {
+describe("Select services", () => {
+  test("The client selects the SEO service", () => {
     const setServiceSelect = vi.fn();
 
     render(
