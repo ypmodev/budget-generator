@@ -49,7 +49,7 @@ const ClientForm = ({
         <form
           onSubmit={handleSubmit(onSubmit)}
           noValidate
-          className="grid grid-cols-1 gap-4 md:grid-cols-4"
+          className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4"
         >
           <div className="flex flex-col gap-1">
             <label htmlFor="name" className="sr-only">
@@ -110,7 +110,7 @@ const ClientForm = ({
 
           <Button
             type="submit"
-            className="w-full self-end bg-[#58af8c] font-semibold text-white hover:bg-[#469875]"
+            className="w-full self-end bg-[#58af8c] font-semibold text-white hover:bg-[#469875] lg:col-span-1"
           >
             {texts.clientForm.submitButton}
             <ArrowRight />
