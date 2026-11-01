@@ -3,20 +3,30 @@
 Aplicación web (SPA) que permite calcular al instante presupuestos personalizados de servicios de marketing digital y desarrollo web. Los usuarios pueden seleccionar servicios, configurar sus opciones, introducir sus datos y obtener un enlace único para consultar o compartir su presupuesto.
 
 **Demo:** [Budget – Generador de presupuestos](https://ypmodev.github.io/budget-generator/)
-
 ## Vista previa de la aplicación
 
-### Selección de servicios y presupuesto
-
-![Selección de servicios](./docs/screenshots/budget-services.jpg)
-
-### Formulario de datos del cliente y presupuestos generados
-
-![Formulario del cliente](./docs/screenshots/client-form.jpg)
-
-### Presupuesto compartido
-
-![Detalle del presupuesto](./docs/screenshots/shared-budget.jpg)
+<table>
+  <tr>
+    <td width="33%" align="center">
+      <strong>Selección de servicios</strong><br />
+      <img src="./docs/screenshots/budget-services.jpg"
+           alt="Selección de servicios"
+           height="300" />
+    </td>
+    <td width="33%" align="center">
+      <strong>Formulario y presupuestos</strong><br />
+      <img src="./docs/screenshots/client-form.jpg"
+           alt="Formulario y presupuestos"
+           height="300" />
+    </td>
+    <td width="33%" align="center">
+      <strong>Presupuesto compartido</strong><br />
+      <img src="./docs/screenshots/shared-budget.jpg"
+           alt="Presupuesto compartido"
+           height="300" />
+    </td>
+  </tr>
+</table>
 
 ## Funcionalidades
 
