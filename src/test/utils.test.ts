@@ -1,6 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { calculateExtraCostWeb } from "@/utils/calculateBudget";
-import { getSelectedServices } from "@/utils/calculateBudget";
+import { calculateExtraCostWeb, getSelectedServices } from "@/utils/calculateBudget";
 import type { ServiceType } from "@/types/service";
 import type { BudgetState } from "@/types/budget-state";
 
