@@ -8,8 +8,13 @@ import {
   getSelectedServices,
   calculateTotalBudget,
 } from "@/utils/calculateBudget";
+import FormClient from "@/components/FormClient";
 
-import InfoExtraCostModal from "@/components/ExtraCostModal";
+import { getBudgets, saveBudget } from "@/services/budgetStorage";
+import type { SavedBudget } from "@/types/saved-budget";
+import type { FormValues } from "@/schemas/clientFormSchema";
+
+import BudgetList from "@/components/BudgetList";
 
 const services = servicesData as ServiceType[];
 const baseCount = 1;
@@ -46,11 +51,33 @@ const Budget = () => {
     budget.pages,
     budget.languages,
   );
+  const [savedBudgets, setSavedBudgets] = useState<SavedBudget[]>(getBudgets);
+
+  const handleSaveBudget = (clientData: FormValues) => {
+    const newBudget: SavedBudget = {
+      id: crypto.randomUUID(),
+      date: new Date().toISOString(),
+      client: clientData,
+      services: selectedServices.map((service) => service.title),
+      total: totalBudget.total,
+    };
+
+    if (budget.web) {
+      newBudget.web = {
+        pages: budget.pages,
+        languages: budget.languages,
+      };
+    }
+
+    saveBudget(newBudget);
+
+    setSavedBudgets(getBudgets());
+  };
 
   return (
     <>
       <section className="mx-auto w-full max-w-4xl px-4 pt-8 pb-4 md:pt-12">
-        <h2 className="text-l font-extrabold text-black md:text-2xl lg:text-3xl">
+        <h2 className="text-lg font-extrabold text-black md:text-2xl lg:text-3xl">
           {texts.budgetTitle}
         </h2>
 
@@ -59,7 +86,7 @@ const Budget = () => {
         </p>
       </section>
 
-      <article className="mx-auto mt-6 w-full max-w-4xl space-y-5 px-4">
+      <article className="mx-auto mt-3 w-full max-w-4xl space-y-5 px-4">
         {services.map((service) => (
           <ServiceCard
             key={service.id}
@@ -73,13 +100,24 @@ const Budget = () => {
           />
         ))}
       </article>
-      <section className="mx-auto mt-6 w-full max-w-4xl px-4 text-right">
+      <section className="mx-auto mt-8 w-full max-w-4xl px-4 text-right">
         <p aria-live="polite">
-          <span className="text-lg font-bold">{texts.totalLabel}</span>{" "}
-          <span className="text-3xl font-extrabold">{totalBudget.total} €</span>
+          <span className="text-lg font-bold">{texts.totalLabel}</span>
+          <span className="ml-3 text-3xl font-extrabold">
+            {totalBudget.total} €
+          </span>
         </p>
       </section>
-      <InfoExtraCostModal />
+      <section className="mx-auto mt-10 mb-10 w-full max-w-4xl px-4">
+        <FormClient
+          hasSelectedServices={selectedServices.length > 0}
+          onSaveBudget={handleSaveBudget}
+        />
+      </section>
+      <div className="mx-auto mt-10 mb-10 w-full max-w-4xl border-b border-dashed border-gray-300 px-4 pb-10"></div>
+      <section className="mx-auto mb-10 w-full max-w-4xl px-4">
+        <BudgetList budgets={savedBudgets} />
+      </section>
     </>
   );
 };

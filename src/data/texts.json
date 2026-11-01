@@ -23,6 +23,64 @@
     "modalPageInfo": "Has afegit una pàgina extra al teu web. El cost de cada pàgina addicional és de 30 €",
 
     "modalLanguageTitle": "Número de llenguatges",
-    "modalLanguageInfo": "Has afegit un idioma extra al teu projecte. El cost de cada idioma addicional és de 30 €"
+    "modalLanguageInfo": "Has afegit un llenguatge extra al teu projecte. El cost de cada idioma addicional és de 30 €"
+  },
+
+  "validationForm": {
+    "nameRequired": "El nom i els cognoms són obligatoris",
+    "phoneRequired": "El telèfon és obligatori",
+    "emailRequired": "El correu electrònic és obligatori",
+    "emailInvalid": "Introdueix un correu electrònic vàlid",
+    "phoneInvalid": "Introdueix un telèfon vàlid (de 9 a 15 dígits, sense espais)"
+  },
+
+  "clientForm": {
+    "title": "Demanar pressupost",
+    "nameLabel": "Nom i cognoms",
+    "phoneLabel": "Telèfon",
+    "emailLabel": "Email",
+    "namePlaceholder": "Nom i cognoms",
+    "phonePlaceholder": "Telèfon",
+    "emailPlaceholder": "Email",
+    "submitButton": "Sol·licitar pressupost",
+    "submitButtonError": "Selecciona almenys un servei per generar el pressupost.",
+    "successMessage": "Pressupost generat correctament!"
+  },
+
+  "history": {
+    "title": "Pressupostos en curs",
+    "empty": "Encara no hi ha pressupostos en curs",
+    "servicesLabel": "Serveis contractats:",
+    "totalLabel": "Total:",
+    "pages": "pàgines",
+    "languages": "llenguatges"
+  },
+
+  "filters": {
+    "sortBy": "Ordenar per",
+    "date": "Data",
+    "import": "Import",
+    "name": "Nom",
+    "search": "Buscar pressupostos...",
+    "noResults": "No s'han trobat resultats.",
+    "toggleSearch": "Cercar"
+  },
+  "sharedBudget": {
+    "title": "Detall del pressupost",
+    "description": "Consulta els detalls del pressupost que has sol·licitat.",
+    "clientTitle": "Dades del client",
+    "servicesTitle": "Serveis contractats",
+    "nameLabel": "Nom i cognoms",
+    "phoneLabel": "Telèfon",
+    "emailLabel": "Email",
+    "webDetails": "Detalls del servei web",
+    "pagesLabel": "Nombre de pàgines",
+    "languagesLabel": "Nombre de llenguatges",
+    "totalLabel": "Preu total del pressupost:",
+    "notFound": "No s'ha trobat el pressupost.",
+
+    "shareButton": "Compartir",
+    "shareSuccess": "Enllaç copiat correctament!",
+    "shareError": "No s'ha pogut copiar l'enllaç."
   }
 }
